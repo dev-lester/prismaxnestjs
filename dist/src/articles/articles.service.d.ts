@@ -4,7 +4,15 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export declare class ArticlesService {
     private prisma;
     constructor(prisma: PrismaService);
-    create(createArticleDto: CreateArticleDto): string;
+    create(createArticleDto: CreateArticleDto): import(".prisma/client").Prisma.Prisma__ArticleClient<{
+        id: number;
+        title: string;
+        description: string;
+        body: string;
+        published: boolean;
+        createdAt: Date;
+        updatedAt: Date;
+    }, never, import("@prisma/client/runtime/library").DefaultArgs>;
     findAll(): import(".prisma/client").Prisma.PrismaPromise<{
         id: number;
         title: string;
@@ -14,7 +22,23 @@ export declare class ArticlesService {
         createdAt: Date;
         updatedAt: Date;
     }[]>;
-    findOne(id: number): string;
-    update(id: number, updateArticleDto: UpdateArticleDto): string;
-    remove(id: number): string;
+    findOne(id: number): import(".prisma/client").Prisma.Prisma__ArticleClient<{
+        id: number;
+        title: string;
+        description: string;
+        body: string;
+        published: boolean;
+        createdAt: Date;
+        updatedAt: Date;
+    }, null, import("@prisma/client/runtime/library").DefaultArgs>;
+    update(id: number, updateArticleDto: UpdateArticleDto): import(".prisma/client").Prisma.Prisma__ArticleClient<{
+        id: number;
+        title: string;
+        description: string;
+        body: string;
+        published: boolean;
+        createdAt: Date;
+        updatedAt: Date;
+    }, never, import("@prisma/client/runtime/library").DefaultArgs>;
+    remove(id: number): void;
 }

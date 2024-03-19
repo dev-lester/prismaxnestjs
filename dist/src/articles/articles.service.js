@@ -17,19 +17,22 @@ let ArticlesService = class ArticlesService {
         this.prisma = prisma;
     }
     create(createArticleDto) {
-        return 'This action adds a new article';
+        return this.prisma.article.create({ data: createArticleDto });
     }
     findAll() {
         return this.prisma.article.findMany({ where: { published: true } });
     }
     findOne(id) {
-        return `This action returns a #${id} article`;
+        return this.prisma.article.findUnique({ where: { id } });
     }
     update(id, updateArticleDto) {
-        return `This action updates a #${id} article`;
+        return this.prisma.article.update({
+            where: { id },
+            data: updateArticleDto,
+        });
     }
     remove(id) {
-        return `This action removes a #${id} article`;
+        this.prisma.article.delete({ where: { id } });
     }
 };
 exports.ArticlesService = ArticlesService;
